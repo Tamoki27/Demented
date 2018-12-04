@@ -20,7 +20,7 @@ public class FlashlightSwitch : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //Toggle flashlight
-        if (Input.GetKeyDown(KeyCode.F))
+        /*if (Input.GetKeyDown(KeyCode.F))
         {
             if (isOn)
             {
@@ -35,6 +35,6 @@ public class FlashlightSwitch : MonoBehaviour {
             }
 
 
-        }
-    }
+        } */
+    } 
 }

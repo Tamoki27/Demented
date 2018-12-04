@@ -1518,13 +1518,15 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 215260637}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf956b76fe01739498facc839b4b0165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   batteryMeter: {fileID: 0}
   flashlight: {fileID: 0}
+  isOn: 0
+  LightPower: 0
 --- !u!114 &215260640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,7 +1568,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 30
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11835,6 +11837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batteryMeter: {fileID: 215260640}
   flashlight: {fileID: 0}
+  isOn: 0
+  LightPower: 0
 --- !u!1001 &2056569563
 Prefab:
   m_ObjectHideFlags: 0

@@ -14,11 +14,14 @@ public class BatterySlider : MonoBehaviour {
     //FlashlightSwitch FLswitch;
 
     public Light flashlight;
-    private bool isOn = false;
+    public bool isOn;
+    public bool LightPower;
     // Use this for initialization
     void Start () {
         //batteryMeter = GetComponent<Slider>();
         batteryLife = maxBatlife;
+        isOn = false;
+        LightPower = false;
         //FLswitch = GetComponent<FlashlightSwitch>();
         flashlight = GetComponent<Light>();
 
@@ -27,19 +30,19 @@ public class BatterySlider : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //Debug.Log(batteryLife);
 
-
-        if (isOn)
+        if (LightPower == true)
         {
+            Debug.Log("Flashlight On: " + batteryLife);
             batteryLife -= Time.deltaTime;
         }
 
-        if (!isOn && count == 0)
+        if (LightPower == false)
         {
+            Debug.Log("Flashlight Off: " + batteryLife);
             batteryLife += Time.deltaTime;
 
-            if (batteryLife == maxBatlife)
+            if (batteryLife >= maxBatlife)
             {
                 batteryLife = maxBatlife;
             }
@@ -50,22 +53,21 @@ public class BatterySlider : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log(count);
+            Debug.Log("Toggle Light");
             //batteryMeter.value = batteryLife;
 
-            if (!isOn)
+            if (LightPower == false)
             {
-                flashlight.enabled = flashlight.enabled;
-                isOn = true;
+                flashlight.enabled = flashlight.enabled = true;
+                LightPower = true;
                 //batteryLife -= Time.deltaTime;
             }
-
-            if (isOn)
+            else if (LightPower == true)
             {
-                flashlight.enabled = !flashlight.enabled;
+                flashlight.enabled = flashlight.enabled = false;
                 //batteryLife += Time.deltaTime;
-                isOn = false;
-                count = 0;
+                LightPower = false;
+                //count = 0;
 
                 /*if(batteryLife == maxBatlife)
                 {
