@@ -8,14 +8,16 @@ public class BatterySlider : MonoBehaviour {
     float maxBatlife = 30f;
     float minBatLife = 0f;
 
-    private Slider batteryMeter;
+    int count =  1;
+
+    public Slider batteryMeter;
     //FlashlightSwitch FLswitch;
 
     public Light flashlight;
-    public bool isOn = false;
+    private bool isOn = false;
     // Use this for initialization
     void Start () {
-        batteryMeter = GetComponent<Slider>();
+        //batteryMeter = GetComponent<Slider>();
         batteryLife = maxBatlife;
         //FLswitch = GetComponent<FlashlightSwitch>();
         flashlight = GetComponent<Light>();
@@ -25,35 +27,90 @@ public class BatterySlider : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        Debug.Log(batteryLife);
+        //Debug.Log(batteryLife);
 
-        if (Input.GetKeyDown(KeyCode.F) /*&& batteryLife > minBatLife*/)
+
+        if (isOn)
         {
-            if (isOn)
+            batteryLife -= Time.deltaTime;
+        }
+
+        if (!isOn && count == 0)
+        {
+            batteryLife += Time.deltaTime;
+
+            if (batteryLife == maxBatlife)
             {
-                //Debug.Log(FLswitch.isOn);
-
-                flashlight.enabled = !flashlight.enabled;
-                batteryLife += Time.deltaTime;
-                isOn = false;
-
-                if(batteryLife == maxBatlife)
-                {
-                    batteryLife = maxBatlife;
-                }
+                batteryLife = maxBatlife;
             }
+        }
+
+        batteryMeter.value = batteryLife;
+
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log(count);
+            //batteryMeter.value = batteryLife;
 
             if (!isOn)
             {
                 flashlight.enabled = flashlight.enabled;
                 isOn = true;
-                batteryLife -= Time.deltaTime;
+                //batteryLife -= Time.deltaTime;
             }
+
+            if (isOn)
+            {
+                flashlight.enabled = !flashlight.enabled;
+                //batteryLife += Time.deltaTime;
+                isOn = false;
+                count = 0;
+
+                /*if(batteryLife == maxBatlife)
+                {
+                    batteryLife = maxBatlife;
+                }*/
+            }
+
+            
+
 
 
         }
+        //Debug.Log(batteryLife);
+        //Debug.Log(isOn);
 
-        batteryMeter.value = batteryLife;
+
+        
+
+        
+
+
+
+        /*if (!isOn)
+        {
+            batteryLife += Time.deltaTime;
+
+            if(batteryLife == maxBatlife)
+            {
+                batteryLife = maxBatlife;
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                flashlight.enabled = flashlight.enabled;
+            }
+        }
+
+        if (isOn)
+        {
+            batteryLife -= Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                flashlight.enabled = !flashlight.enabled;
+            }
+        }*/
 
     }
 }
