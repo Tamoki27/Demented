@@ -7,12 +7,12 @@ public class InsanityMeter : MonoBehaviour {
     private Slider insanityMeter;
     private float insanityMax = 50f;
     private float insanityMin = 0f;
-    private float insanityBase;
+    public float insanityBase;
 
     public GameObject panel;
     public GameObject lose;
 
-    private float timer = 300f;
+    private float timer = 1000f;
 	// Use this for initialization
 	void Start () {
         insanityMeter = GetComponent<Slider>();
@@ -29,8 +29,8 @@ public class InsanityMeter : MonoBehaviour {
         //If timer is equal to 0 the meter goes down by 5 and resets the timer to enter the loop again
         if(timer == 0)
         {
-            insanityBase -= 5f;
-            timer = 300f;
+            insanityBase -= 1f;
+            timer = 1000f;
         }
 
         //if the meter goes down to 0 game would be over

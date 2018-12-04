@@ -51,35 +51,37 @@ public class BatterySlider : MonoBehaviour {
         batteryMeter.value = batteryLife;
 
 
+        
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Toggle Light");
-            //batteryMeter.value = batteryLife;
-
-            if (LightPower == false)
-            {
-                flashlight.enabled = flashlight.enabled = true;
-                LightPower = true;
-                //batteryLife -= Time.deltaTime;
+           Debug.Log("Toggle Light");
+           //batteryMeter.value = batteryLife;
+           if (batteryLife >= 30)
+           {
+             if (LightPower == false)
+              {
+                 flashlight.enabled = flashlight.enabled = true;
+                 LightPower = true;
+                    //batteryLife -= Time.deltaTime;
+              }
+              else if (LightPower == true)
+              {
+                 flashlight.enabled = flashlight.enabled = false;
+                 //batteryLife += Time.deltaTime;
+                 LightPower = false;
+                  //count = 0;
+              }
             }
-            else if (LightPower == true)
+            else if(batteryLife <= 1)
             {
-                flashlight.enabled = flashlight.enabled = false;
-                //batteryLife += Time.deltaTime;
-                LightPower = false;
-                //count = 0;
-
-                /*if(batteryLife == maxBatlife)
-                {
-                    batteryLife = maxBatlife;
-                }*/
+                flashlight.enabled = false;
             }
-
-            
-
-
-
         }
+        
+
+       
+
+        
         //Debug.Log(batteryLife);
         //Debug.Log(isOn);
 
