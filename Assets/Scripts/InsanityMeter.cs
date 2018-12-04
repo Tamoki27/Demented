@@ -23,13 +23,17 @@ public class InsanityMeter : MonoBehaviour {
 	void Update () {
         insanityMeter.value = insanityBase;
         //Debug.Log(timer);
+        //Timer goes down 1.0 per update
         timer -= 1.0f;
-
+        
+        //If timer is equal to 0 the meter goes down by 5 and resets the timer to enter the loop again
         if(timer == 0)
         {
             insanityBase -= 5f;
             timer = 300f;
         }
+
+        //if the meter goes down to 0 game would be over
         if(insanityMeter.value == insanityMin)
         {
             GameOver();
