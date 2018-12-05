@@ -12,7 +12,7 @@ public class AntidoteScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(im.insanityBase);
+        //Debug.Log(im.insanityBase);
 	}
 
     private void OnCollisionEnter(Collision col)

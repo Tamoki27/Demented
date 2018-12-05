@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class InsanityMeter : MonoBehaviour {
     private Slider insanityMeter;
-    private float insanityMax = 50f;
+    private float insanityMax = 10f;
     private float insanityMin = 0f;
     public float insanityBase;
 
     public GameObject panel;
     public GameObject lose;
+    public Image deathImage;
+    public Image crackImage;
 
-    private float timer = 1000f;
+    private float timer = 100f;
 	// Use this for initialization
 	void Start () {
         insanityMeter = GetComponent<Slider>();
@@ -22,7 +24,7 @@ public class InsanityMeter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         insanityMeter.value = insanityBase;
-        //Debug.Log(timer);
+        Debug.Log(insanityBase);
         //Timer goes down 1.0 per update
         timer -= 1.0f;
         
@@ -30,7 +32,13 @@ public class InsanityMeter : MonoBehaviour {
         if(timer == 0)
         {
             insanityBase -= 1f;
-            timer = 1000f;
+            timer = 100f;
+        }
+
+        //Setting the crack image when insanity base goes half in value
+        if(insanityMeter.value == (insanityBase / 2))
+        {
+            crackImage.gameObject.SetActive(true);
         }
 
         //if the meter goes down to 0 game would be over
