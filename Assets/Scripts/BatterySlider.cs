@@ -14,6 +14,7 @@ public class BatterySlider : MonoBehaviour {
     public Light flashlight;
     public bool isOn;
     public bool LightPower;
+
     // Use this for initialization
     void Start () {
         batteryLife = maxBatlife;

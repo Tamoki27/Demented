@@ -21,7 +21,7 @@ public class AntidoteScript : MonoBehaviour {
         {
             Debug.Log("Triggered");
             Destroy(col.gameObject);
-            im.insanityBase += 25;
+            //im.insanityBase += 25;
         }
         
     }
