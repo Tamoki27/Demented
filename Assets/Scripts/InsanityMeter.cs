@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class InsanityMeter : MonoBehaviour {
-    private Slider insanityMeter;
+    //private Slider insanityMeter;
     private float insanityMax = 50f;
     private float insanityMin = 0f;
     private float insanityBase;
@@ -29,14 +29,17 @@ public class InsanityMeter : MonoBehaviour {
     private float timer = 1f;
 	// Use this for initialization
 	void Start () {
-        insanityMeter = GetComponent<Slider>();
+        //insanityMeter = GetComponent<Slider>();
         insanityBase = insanityMax;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        insanityMeter.value = insanityBase;
-        Debug.Log("Insanity meter: " + insanityMeter.value);
+        //insanityMeter.value = insanityBase;
+        //Debug.Log("Insanity meter: " + insanityMeter.value);
+        Debug.Log("Insanity Meter: " + insanityBase);
+
+
         //Timer goes down 1.0 per update
         timer -= Time.deltaTime;
         
@@ -48,13 +51,13 @@ public class InsanityMeter : MonoBehaviour {
         }
 
         //Setting the crack image when insanity base goes half in value
-        if(insanityMeter.value == (insanityMax * 0.5f))
+        if(insanityBase == (insanityMax * 0.5f))
         {
             //Debug.Log("Firing");
             crackImage.gameObject.SetActive(true);
         }
 
-        if(insanityMeter.value < (insanityMax * 0.3f))
+        if(insanityBase < (insanityMax * 0.3f))
         {
             Debug.Log("Check");
             bool check = true;
@@ -80,7 +83,7 @@ public class InsanityMeter : MonoBehaviour {
         brain.GetComponent<Image>().color = new Color(ColorR, ColorG, ColorB, ColorA);
 
         //if the meter goes down to 0 game would be over
-        if (insanityMeter.value == insanityMin)
+        if (insanityBase == insanityMin)
         {
             GameOver();
 
