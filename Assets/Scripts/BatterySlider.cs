@@ -81,31 +81,16 @@ public class BatterySlider : MonoBehaviour {
             }
         }else if(batteryLife < 10)
         {
-            /*float count = 0f;
-            count += Time.deltaTime;
-            Debug.Log("count :" + (int)count);
-            do
-            {
-                if (count < 50)
-                {
-                    flashlight.enabled = flashlight.enabled = false;
-                    Debug.Log("Light power: " + LightPower);
-                    Debug.Log("Battery Meter :" + batteryLife);
-                }
-                else if (count > 50)
-                {
-                    count = 0f;
+            
 
-                }
-            } while (batteryLife < 10);*/
-
+            flashlight.enabled = flashlight.enabled = false;
             if (Input.GetKeyDown(KeyCode.F))
             {
                 flashlight.enabled = flashlight.enabled = false;
             }
 
-            batteryLife += Time.deltaTime;
-
+            //batteryLife += Time.deltaTime;
+            LightPower = false;
 
         }
     }
