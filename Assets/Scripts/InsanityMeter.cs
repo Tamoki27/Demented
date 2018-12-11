@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InsanityMeter : MonoBehaviour {
     //private Slider insanityMeter;
-    private float insanityMax = 50f;
+    private float insanityMax = 100f;
     private float insanityMin = 0f;
     private float insanityBase;
 
@@ -37,7 +37,7 @@ public class InsanityMeter : MonoBehaviour {
 	void Update () {
         //insanityMeter.value = insanityBase;
         //Debug.Log("Insanity meter: " + insanityMeter.value);
-        Debug.Log("Insanity Meter: " + insanityBase);
+        //Debug.Log("Insanity Meter: " + insanityBase);
 
 
         //Timer goes down 1.0 per update

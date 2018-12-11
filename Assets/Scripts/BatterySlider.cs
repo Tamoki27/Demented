@@ -27,7 +27,7 @@ public class BatterySlider : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //Debug.Log(num);
+        Debug.Log("Battery life: " + (int)batteryLife);
         if (LightPower == true)
         {
             //Debug.Log("Flashlight On: " + batteryLife);
@@ -53,9 +53,9 @@ public class BatterySlider : MonoBehaviour {
         batteryMeter.value = batteryLife;
 
 
-        if(batteryLife > 1)
+        if(batteryLife > 10)
         {
-            //Debug.Log(LightPower);
+            Debug.Log("Outside input battery life : " + (int)batteryLife);
             /*if (Input.GetKeyDown(KeyCode.F) && batteryLife <= 5)
             {
                 flashlight.enabled = !flashlight.enabled;
@@ -69,26 +69,44 @@ public class BatterySlider : MonoBehaviour {
                     flashlight.enabled = flashlight.enabled = true;
                     LightPower = true;
                     num = 1;
-                    //Debug.Log(LightPower);
+                    Debug.Log("Flashlight meter: " + (int)batteryLife + LightPower);
                 }
                 else if (LightPower == true)
                 {
                     flashlight.enabled = flashlight.enabled = false;
                     LightPower = false;
                     num = 2;
-                    //Debug.Log(LightPower);
+                    Debug.Log("Flashlight meter: " + (int)batteryLife + LightPower);
                 }
             }
-        }
-
-        if(num == 1)
+        }else if(batteryLife < 10)
         {
-            Debug.Log("Number is " + num);
-        }
-        else if(num == 2)
-        {
-            Debug.Log("Number is " + num);
-        }
+            /*float count = 0f;
+            count += Time.deltaTime;
+            Debug.Log("count :" + (int)count);
+            do
+            {
+                if (count < 50)
+                {
+                    flashlight.enabled = flashlight.enabled = false;
+                    Debug.Log("Light power: " + LightPower);
+                    Debug.Log("Battery Meter :" + batteryLife);
+                }
+                else if (count > 50)
+                {
+                    count = 0f;
 
+                }
+            } while (batteryLife < 10);*/
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                flashlight.enabled = flashlight.enabled = false;
+            }
+
+            batteryLife += Time.deltaTime;
+
+
+        }
     }
 }
