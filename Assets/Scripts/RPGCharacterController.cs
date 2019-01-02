@@ -1,8 +1,14 @@
 using UnityEngine;
 
 public class RPGCharacterController : MonoBehaviour 
+
+ 
 {
-	public string moveStatus = "idle";
+    //gawa ni mamshie
+    [SerializeField]
+    GameObject enemyScript;
+
+    public string moveStatus = "idle";
 	public bool walkByDefault = true;
 	public float gravity = 20.0f;
 	
@@ -33,6 +39,15 @@ public class RPGCharacterController : MonoBehaviour
 	
 	void Update ()
 	{
+        //gawa ni mamshie
+        //if (enemyCam.isVisible)
+        //{
+        //    enemyScript.GetComponent<FollowTarget>().ActivateRUNAWAY();
+        //}else if (!enemyCam.isVisible)
+        //{
+        //    enemyScript.GetComponent<FollowTarget>().ActivateNORUNAWAY();
+        //}
+
 		//Set idle animation
 		//moveStatus = "idle";
 		isWalking = walkByDefault;
@@ -115,8 +130,16 @@ public class RPGCharacterController : MonoBehaviour
 			{
 				animController.SetBool("isWalking",false);	
 			}
-			
-			animController.SetFloat("Speed",moveDirection.z);
+            if (moveDirection.magnitude > 0.1f)
+            {
+                animController.SetBool("isRunning", true);
+            }
+            else
+            {
+                animController.SetBool("isRunning", false);
+            }
+
+            animController.SetFloat("Speed",moveDirection.z);
 			animController.SetFloat("Direction",moveDirection.x);
 			
 			//transform direction
@@ -147,5 +170,24 @@ public class RPGCharacterController : MonoBehaviour
 		{
 			moveStatus = "jump";
 		}
+
+
 	}
+
+    private void OnBecameVisible()
+    {
+        enemyScript.GetComponent<FollowTarget>().ActivateRUNAWAY();
+
+    }
+    private void OnBecameInvisible()
+    {
+        enemyScript.GetComponent<FollowTarget>().ActivateNORUNAWAY();
+
+    }
+
+    void RunSounds()
+    {
+
+    }
+
 }
