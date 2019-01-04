@@ -6,7 +6,7 @@ public class RPGCharacterController : MonoBehaviour
 {
     //gawa ni mamshie
     [SerializeField]
-    GameObject enemyScript;
+    //GameObject enemyScript;
 
     public string moveStatus = "idle";
 	public bool walkByDefault = true;
@@ -174,7 +174,7 @@ public class RPGCharacterController : MonoBehaviour
 
 	}
 
-    private void OnBecameVisible()
+    /*private void OnBecameVisible()
     {
         enemyScript.GetComponent<FollowTarget>().ActivateRUNAWAY();
 
@@ -188,6 +188,6 @@ public class RPGCharacterController : MonoBehaviour
     void RunSounds()
     {
 
-    }
+    }*/
 
 }

@@ -5,33 +5,35 @@ public class FollowTarget : MonoBehaviour
 {
 	public Transform target;
     private UnityEngine.AI.NavMeshAgent agent;
-    Animator enemyAnim;
-    float run;
-    bool attk, start;
+   // Animator enemyAnim;
+    //float run;
+    //bool attk, start;
 
 	
 	// Use this for initialization
 	void Start () 
 	{
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        enemyAnim = GetComponent<Animator>();
-        run = 0.0f;
-        attk = false;
-        start = false;
+        //enemyAnim = GetComponent<Animator>();
+        //run = 0.0f;
+        //attk = false;
+       // start = false;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-        EnemyCondition();
+        /*EnemyCondition();
 
         enemyAnim.SetFloat("run", run);
         enemyAnim.SetBool("attack", attk);
+        */
 
+        agent.SetDestination(target.position);
 		
 	}
 
-    void EnemyCondition()
+    /*void EnemyCondition()
     {
         if (start)
         {
@@ -67,5 +69,5 @@ public class FollowTarget : MonoBehaviour
     public void ActivateNORUNAWAY()
     {
         start = false;
-    }
+    }*/
 }

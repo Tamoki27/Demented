@@ -13,7 +13,7 @@ public class Patroller : MonoBehaviour
 	private Character character;
 	private int attackState;
 	private int deadState;
-    private AudioSource audio;
+    //private AudioSource audio;
 	
 	
 	// Use this for initialization
@@ -89,7 +89,7 @@ public class Patroller : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            audio.GetComponent<AudioSource>().enabled = true;
+            GetComponent<AudioSource>().GetComponent<AudioSource>().enabled = true;
         }
     }
 }

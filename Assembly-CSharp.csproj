@@ -74,9 +74,11 @@
     <Compile Include="Assets\Scripts\FollowTarget.cs" />
     <Compile Include="Assets\Scripts\HitBox.cs" />
     <Compile Include="Assets\Scripts\InsanityMeter.cs" />
+    <Compile Include="Assets\Scripts\MamshieScript.cs" />
     <Compile Include="Assets\Scripts\Patroller.cs" />
     <Compile Include="Assets\Scripts\RPGCameraController.cs" />
     <Compile Include="Assets\Scripts\RPGCharacterController.cs" />
+    <Compile Include="Assets\Scripts\SphereCaster.cs" />
     <Compile Include="Assets\Scripts\WanderingMonster.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/GameDev/Unity/Projects/Demented/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

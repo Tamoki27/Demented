@@ -12,6 +12,8 @@ public class FirstPersonScript : MonoBehaviour {
     private Vector2 mouseLook;
     private Vector2 smoothV;
 
+    private float yRot;
+
     // Use this for initialization
     void Start()
     {
@@ -22,6 +24,9 @@ public class FirstPersonScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        //constricting camera y view
+        yRot = Mathf.Min(50, Mathf.Max(-50, yRot + Input.GetAxis("Mouse Y")));
+
         // md is mouse delta
         Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
@@ -32,8 +37,12 @@ public class FirstPersonScript : MonoBehaviour {
         mouseLook += smoothV;
 
         // vector3.right means the x-axis
-        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+        //transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+        //character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+
+        transform.localRotation = Quaternion.AngleAxis(yRot, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+
     }
 }
 
