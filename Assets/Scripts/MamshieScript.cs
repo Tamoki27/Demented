@@ -23,6 +23,7 @@ public class MamshieScript : MonoBehaviour {
     //for animation
     bool scream;
     float run;
+    bool clearToMove;
 
 
     // Use this for initialization
@@ -34,55 +35,68 @@ public class MamshieScript : MonoBehaviour {
         wayP = 0;
         eAnim = GetComponent<Animator>();
         run = 0.0f;
+        clearToMove = true;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(follow + " " + scream);
+        //setting the animation
+        eAnim.SetBool("scream", scream);
+        eAnim.SetFloat("run", run);
 
-        if (follow == true)
+        //checking if he saw the player
+        if (!follow)
         {
-           
-            FollowMamshie();
-        }
-        else if (!follow)
-        {
-            Debug.Log("follow");
+            //patrolling
             WaypointPatrol();
-            if(run > 0)
+            if (run > 0f)
             {
                 run -= 0.1f;
             }
         }
+        else
+        {
+            //chasing player
+            FollowMamshie();
 
-        
+        }
 
+
+        //checking if animation is done
         AnimatorStateInfo animState = eAnim.GetCurrentAnimatorStateInfo(0);
         if (animState.IsName("Scream"))
         {
+            Debug.Log("scream  " + scream);
             if (animState.normalizedTime > 0.9f)
             {
+                Debug.Log("Update4");
+
                 scream = false;
             }
         }
+        if(animState.IsName("Zombie Attack"))
+        {
+            if(animState.normalizedTime > 0.9f)
+            {
+                clearToMove = true;
+            }
+        }
 
-        eAnim.SetBool("scream", scream);
-        eAnim.SetFloat("run", run);
+        
 
-        //eAnim.SetTrigger("attack");
+        
     }
 
     void WaypointPatrol()
     {
-        
+        //checking the destination
         if (arrived)
         {
 
-            int rand = Random.Range(0, ewaypoint.Length);
+            wayP = Random.Range(0, ewaypoint.Length);
             arrived = false;
-            wayP = rand;
             
         }
         else
@@ -103,23 +117,38 @@ public class MamshieScript : MonoBehaviour {
 
     void FollowMamshie()
     {
-        Debug.Log(scream);
+       
         //To follow target
-        if (!scream)
+        if (scream)
         {
-           
-            agent.SetDestination(target.position);
-            if(run < 1)
-            {
-                Debug.Log("yeah");
-                run += 0.1f;
-            }
+            Debug.Log(scream + "scream");
+            agent.SetDestination(transform.position);
+
         }
         else
         {
-            agent.SetDestination(transform.position);
+            if (clearToMove)
+            {
+                agent.SetDestination(target.position);
+                if (run < 1f)
+                {
+                    Debug.Log(run + "run");
+                    run += 0.1f;
+                }
+            }
+            else
+            {
+                agent.SetDestination(transform.position);
+            }
         }
-     
+
+        //attacking player
+        if ((transform.position - target.transform.position).magnitude < MIN_DISTANCE)
+        {
+            clearToMove = false;
+            eAnim.SetTrigger("attack");
+        }
+
     }
 
     public void FollowPlayer()

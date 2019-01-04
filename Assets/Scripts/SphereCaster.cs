@@ -15,8 +15,13 @@ public class SphereCaster : MonoBehaviour {
 
     private float currHitDist;
 
+
+    //ginalaw ginahasa
+    int ctr;
+
 	// Use this for initialization
 	void Start () {
+        ctr = 1;
 	}
 	
 	// Update is called once per frame
@@ -25,6 +30,11 @@ public class SphereCaster : MonoBehaviour {
         direction = transform.forward;
         RaycastHit hit;
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            gameObject.GetComponent<MamshieScript>().FollowPlayer();
+        }
+
         if(Physics.SphereCast(origin, sphereRad, direction, out hit, maxDist, layer, QueryTriggerInteraction.Collide))
         {
             currentHitObj = hit.transform.gameObject;
@@ -32,9 +42,11 @@ public class SphereCaster : MonoBehaviour {
             //gameObject.GetComponent<FollowTarget>().enabled = true;
             //gameObject.GetComponent<Patroller>().enabled = false;
 
-            
-             gameObject.GetComponent<MamshieScript>().FollowPlayer();
-
+            if (ctr > 0)
+            {
+                gameObject.GetComponent<MamshieScript>().FollowPlayer();
+                ctr--;
+            }
             
 
 
@@ -47,6 +59,7 @@ public class SphereCaster : MonoBehaviour {
             //gameObject.GetComponent<FollowTarget>().enabled = false;
             //gameObject.GetComponent<Patroller>().enabled = true;
 
+            ctr++;
             gameObject.GetComponent<MamshieScript>().BackToPatrol();
         }
 	}

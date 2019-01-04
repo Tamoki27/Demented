@@ -27,7 +27,7 @@ public class BatterySlider : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        Debug.Log("Battery life: " + (int)batteryLife);
+       // Debug.Log("Battery life: " + (int)batteryLife);
         if (LightPower == true)
         {
             //Debug.Log("Flashlight On: " + batteryLife);
@@ -55,7 +55,7 @@ public class BatterySlider : MonoBehaviour {
 
         if(batteryLife > 10)
         {
-            Debug.Log("Outside input battery life : " + (int)batteryLife);
+            //Debug.Log("Outside input battery life : " + (int)batteryLife);
             /*if (Input.GetKeyDown(KeyCode.F) && batteryLife <= 5)
             {
                 flashlight.enabled = !flashlight.enabled;
@@ -69,14 +69,14 @@ public class BatterySlider : MonoBehaviour {
                     flashlight.enabled = flashlight.enabled = true;
                     LightPower = true;
                     num = 1;
-                    Debug.Log("Flashlight meter: " + (int)batteryLife + LightPower);
+                    //Debug.Log("Flashlight meter: " + (int)batteryLife + LightPower);
                 }
                 else if (LightPower == true)
                 {
                     flashlight.enabled = flashlight.enabled = false;
                     LightPower = false;
                     num = 2;
-                    Debug.Log("Flashlight meter: " + (int)batteryLife + LightPower);
+                    //Debug.Log("Flashlight meter: " + (int)batteryLife + LightPower);
                 }
             }
         }else if(batteryLife < 10)
