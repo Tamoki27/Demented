@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class InsanityMeter : MonoBehaviour {
     //private Slider insanityMeter;
-    private float insanityMax = 100f;
-    private float insanityMin = 0f;
-    private float insanityBase;
+    private float insanityMax;
+    private float insanityMin;
+    public float insanityBase;
 
     public GameObject panel;
     public GameObject lose;
@@ -30,6 +30,9 @@ public class InsanityMeter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //insanityMeter = GetComponent<Slider>();
+        insanityBase = 0f;
+        insanityMax = 100f;
+        insanityMin = 0f;
         insanityBase = insanityMax;
     }
 	
@@ -90,7 +93,7 @@ public class InsanityMeter : MonoBehaviour {
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         Time.timeScale = 0;
         panel.SetActive(false);
@@ -99,12 +102,13 @@ public class InsanityMeter : MonoBehaviour {
         gui.SetActive(false);
     }
 
-    private void OnCollisionEnter(Collision col)
+    public float GetInsanityBase()
     {
-        if(col.gameObject.tag == "Antidote")
-        {
-            insanityBase += 25f;
-        }
-        
+        return insanityBase;
+    }
+
+    public void SetInsanityBase(float sInsanityBase)
+    {
+        insanityBase = sInsanityBase;
     }
 }

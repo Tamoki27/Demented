@@ -15,8 +15,6 @@ public class SphereCaster : MonoBehaviour {
 
     private float currHitDist;
 
-
-    //ginalaw ginahasa
     int ctr;
 
 	// Use this for initialization
@@ -32,19 +30,21 @@ public class SphereCaster : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            gameObject.GetComponent<MamshieScript>().FollowPlayer();
+            gameObject.GetComponent<EnemyScript>().FollowPlayer();
         }
 
         if(Physics.SphereCast(origin, sphereRad, direction, out hit, maxDist, layer, QueryTriggerInteraction.Collide))
         {
             currentHitObj = hit.transform.gameObject;
             currHitDist = hit.distance;
+
             //gameObject.GetComponent<FollowTarget>().enabled = true;
             //gameObject.GetComponent<Patroller>().enabled = false;
 
+            //ctr controls the FollowPlayer function
             if (ctr > 0)
             {
-                gameObject.GetComponent<MamshieScript>().FollowPlayer();
+                gameObject.GetComponent<EnemyScript>().FollowPlayer();
                 ctr--;
             }
             
@@ -60,7 +60,7 @@ public class SphereCaster : MonoBehaviour {
             //gameObject.GetComponent<Patroller>().enabled = true;
 
             ctr++;
-            gameObject.GetComponent<MamshieScript>().BackToPatrol();
+            gameObject.GetComponent<EnemyScript>().BackToPatrol();
         }
 	}
 

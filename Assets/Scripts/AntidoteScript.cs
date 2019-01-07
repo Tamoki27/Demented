@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class AntidoteScript : MonoBehaviour {
 
-    InsanityMeter im;
+    float insanity;
+    float addSanity = 30f;
+
+    public GameObject[] Antidote;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,17 +15,23 @@ public class AntidoteScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Debug.Log(im.insanityBase);
+
 	}
 
-    private void OnCollisionEnter(Collision col)
+    public void OnTriggerEnter(Collider other)
     {
-        if(col.gameObject.tag == "Antidote")
+        if(other.CompareTag("Player"))
         {
-            Debug.Log("Triggered");
-            Destroy(col.gameObject);
-            //im.insanityBase += 25;
+            IncreaseInsanity(other);
         }
+    }
+
+    private void IncreaseInsanity(Collider player)
+    {
+        InsanityMeter im = player.GetComponent<InsanityMeter>();
+        im.insanityBase += addSanity;
         
+        Destroy(gameObject);
+
     }
 }
