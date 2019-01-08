@@ -31,7 +31,7 @@ public class InsanityMeter : MonoBehaviour {
 	void Start () {
         //insanityMeter = GetComponent<Slider>();
         insanityBase = 0f;
-        insanityMax = 100f;
+        insanityMax = 1000f;
         insanityMin = 0f;
         insanityBase = insanityMax;
     }
@@ -40,7 +40,7 @@ public class InsanityMeter : MonoBehaviour {
 	void Update () {
         //insanityMeter.value = insanityBase;
         //Debug.Log("Insanity meter: " + insanityMeter.value);
-        //Debug.Log("Insanity Meter: " + insanityBase);
+        Debug.Log("Insanity Meter: " + insanityBase);
 
 
         //Timer goes down 1.0 per update
@@ -86,7 +86,7 @@ public class InsanityMeter : MonoBehaviour {
         brain.GetComponent<Image>().color = new Color(ColorR, ColorG, ColorB, ColorA);
 
         //if the meter goes down to 0 game would be over
-        if (insanityBase == insanityMin)
+        if (insanityBase <= insanityMin)
         {
             GameOver();
 

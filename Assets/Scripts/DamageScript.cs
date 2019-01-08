@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class DamageScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public GameObject player;
+
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            DamagePlayer(other);
+            Debug.Log("Damage Works");
+            DamagePlayer();
         }
     }
 
-    void DamagePlayer(Collider player)
+    public void DamagePlayer()
     {
-        InsanityMeter im = player.GetComponent<InsanityMeter>();
-        im.insanityBase -= 20f;
+        Debug.Log("This Function Works");
+        //Debug.Log(player.GetComponent<InsanityMeter>().insanityBase);
+        player.GetComponent<InsanityMeter>().insanityBase -= 10f;
+        
     }
 }

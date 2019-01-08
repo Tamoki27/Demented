@@ -16,7 +16,7 @@ public class EnemyScript : MonoBehaviour {
     //Patrol
     private UnityEngine.AI.NavMeshAgent agent;
     private int currentPoint = 0;
-    private const float MIN_DISTANCE = 3;
+    private const float MIN_DISTANCE = 10;
 
     bool follow,arrived;
     int wayP;
@@ -96,7 +96,9 @@ public class EnemyScript : MonoBehaviour {
 
     void WaypointPatrol()
     {
+        Debug.Log(ewaypoint.Length);
         Debug.Log("Waypoint Function activates");
+
         //checking the destination
         if (arrived)
         {
@@ -157,14 +159,24 @@ public class EnemyScript : MonoBehaviour {
         }
 
         //attacking player
-        if ((transform.position - target.transform.position).magnitude < MIN_DISTANCE)
+        if ((transform.position - target.transform.position).magnitude < 3)
         {
             Debug.Log("3 EF");
-            Debug.Log((transform.position).magnitude);
-            Debug.Log("Attacking");
-            gameObject.GetComponent<DamageScript>();
             clearToMove = false;
             eAnim.SetTrigger("attack");
+
+            //applying damage
+            AnimatorStateInfo animState = eAnim.GetCurrentAnimatorStateInfo(0);
+            if (animState.IsName("Zombie Attack"))
+            {
+                //aAttack.GetComponent<AudioSource>().enabled = true;
+                if (animState.normalizedTime > 0.5f)
+                {
+                    gameObject.GetComponent<DamageScript>().DamagePlayer();
+
+                }
+            }
+
         }
 
 

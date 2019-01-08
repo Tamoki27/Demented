@@ -5000,11 +5000,11 @@ Prefab:
     - target: {fileID: 114838924392738204, guid: fbba1ac293290c945b1d977c69eeb1e2,
         type: 2}
       propertyPath: ewaypoint.Array.size
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4929330572499306, guid: fbba1ac293290c945b1d977c69eeb1e2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.9
+      value: -24.3
       objectReference: {fileID: 0}
     - target: {fileID: 4929330572499306, guid: fbba1ac293290c945b1d977c69eeb1e2, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5012,7 +5012,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4929330572499306, guid: fbba1ac293290c945b1d977c69eeb1e2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 34.8
+      value: 42.7
       objectReference: {fileID: 0}
     - target: {fileID: 4929330572499306, guid: fbba1ac293290c945b1d977c69eeb1e2, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5079,6 +5079,11 @@ Prefab:
       propertyPath: ewaypoint.Array.data[7]
       value: 
       objectReference: {fileID: 718787769}
+    - target: {fileID: 114465629828478588, guid: fbba1ac293290c945b1d977c69eeb1e2,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1492835553}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbba1ac293290c945b1d977c69eeb1e2, type: 2}
   m_IsPrefabAsset: 0

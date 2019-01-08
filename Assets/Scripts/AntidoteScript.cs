@@ -5,7 +5,7 @@ using UnityEngine;
 public class AntidoteScript : MonoBehaviour {
 
     float insanity;
-    float addSanity = 30f;
+    float addSanity = 100f;
 
     public GameObject[] Antidote;
 	// Use this for initialization
