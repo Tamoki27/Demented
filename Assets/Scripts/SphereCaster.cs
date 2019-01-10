@@ -48,9 +48,6 @@ public class SphereCaster : MonoBehaviour {
                 ctr--;
             }
             
-
-
-
         }
         else
         {

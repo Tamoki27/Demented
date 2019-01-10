@@ -224,7 +224,7 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_TimeParameter: run
 --- !u!1102 &1102716441683702378
 AnimatorState:
   serializedVersion: 5

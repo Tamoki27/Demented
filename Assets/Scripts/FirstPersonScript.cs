@@ -5,9 +5,9 @@ using UnityEngine;
 public class FirstPersonScript : MonoBehaviour {
 
     [SerializeField]
-    public float sensitivity = 1.0f;
+    public float sensitivity = 3.0f;
     [SerializeField]
-    public float smoothing = 1.0f;
+    public float smoothing = 3.0f;
     public GameObject character; 
     private Vector2 mouseLook;
     private Vector2 smoothV;
@@ -25,7 +25,7 @@ public class FirstPersonScript : MonoBehaviour {
     void Update()
     {
         //constricting camera y view
-        yRot = Mathf.Min(50, Mathf.Max(-50, yRot + Input.GetAxis("Mouse Y")));
+        yRot = Mathf.Min(50, Mathf.Max(-50, yRot + -Input.GetAxis("Mouse Y")));
 
         // md is mouse delta
         Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
@@ -42,7 +42,6 @@ public class FirstPersonScript : MonoBehaviour {
 
         transform.localRotation = Quaternion.AngleAxis(yRot, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-
     }
 }
 

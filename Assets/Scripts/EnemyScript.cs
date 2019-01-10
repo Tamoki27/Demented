@@ -30,7 +30,7 @@ public class EnemyScript : MonoBehaviour {
     public GameObject aScream;
     public GameObject aAttack;
 
-
+    int samp = 0;
     // Use this for initialization
     void Start () {
 
@@ -80,14 +80,14 @@ public class EnemyScript : MonoBehaviour {
                 scream = false;
             }
         }
-        if(animState.IsName("Zombie Attack"))
+        /*if(animState.IsName("Zombie Attack"))
         {
             aAttack.GetComponent<AudioSource>().enabled = true;
             if(animState.normalizedTime > 0.9f)
             {
                 clearToMove = true;
             }
-        }
+        }*/
 
         
 
@@ -169,9 +169,11 @@ public class EnemyScript : MonoBehaviour {
             AnimatorStateInfo animState = eAnim.GetCurrentAnimatorStateInfo(0);
             if (animState.IsName("Zombie Attack"))
             {
-                //aAttack.GetComponent<AudioSource>().enabled = true;
-                if (animState.normalizedTime > 0.5f)
+                aAttack.GetComponent<AudioSource>().enabled = true;
+                if (animState.normalizedTime > 0.9f)
                 {
+                    samp++;
+                    Debug.Log(samp + " testing");
                     gameObject.GetComponent<DamageScript>().DamagePlayer();
 
                 }

@@ -27,6 +27,7 @@ public class InsanityMeter : MonoBehaviour {
 
 
     private float timer = 1f;
+
 	// Use this for initialization
 	void Start () {
         //insanityMeter = GetComponent<Slider>();
@@ -38,6 +39,7 @@ public class InsanityMeter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         //insanityMeter.value = insanityBase;
         //Debug.Log("Insanity meter: " + insanityMeter.value);
         Debug.Log("Insanity Meter: " + insanityBase);
