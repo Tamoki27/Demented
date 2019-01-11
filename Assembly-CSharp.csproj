@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Patroller.cs" />
     <Compile Include="Assets\Scripts\RPGCameraController.cs" />
     <Compile Include="Assets\Scripts\RPGCharacterController.cs" />
+    <Compile Include="Assets\Scripts\SampleScript.cs" />
     <Compile Include="Assets\Scripts\SphereCaster.cs" />
     <Compile Include="Assets\Scripts\WanderingMonster.cs" />
     <Reference Include="UnityEditor.StandardEvents">

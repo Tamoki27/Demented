@@ -40,9 +40,8 @@ public class InsanityMeter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        //insanityMeter.value = insanityBase;
-        //Debug.Log("Insanity meter: " + insanityMeter.value);
-        Debug.Log("Insanity Meter: " + insanityBase);
+        
+        //Debug.Log("Insanity Meter: " + insanityBase);
 
 
         //Timer goes down 1.0 per update

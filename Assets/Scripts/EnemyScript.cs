@@ -164,6 +164,7 @@ public class EnemyScript : MonoBehaviour {
             Debug.Log("3 EF");
             clearToMove = false;
             eAnim.SetTrigger("attack");
+            eAnim.SetBool("away", false);
 
             //applying damage
             AnimatorStateInfo animState = eAnim.GetCurrentAnimatorStateInfo(0);
@@ -179,6 +180,16 @@ public class EnemyScript : MonoBehaviour {
                 }
             }
 
+        }
+
+        if ((transform.position - target.transform.position).magnitude > 3)
+        {
+            AnimatorStateInfo animState = eAnim.GetCurrentAnimatorStateInfo(0);
+            if (animState.IsName("Scream") || animState.IsName("Zombie Attack"))
+            {
+                eAnim.SetBool("away", true);
+
+            }
         }
 
 

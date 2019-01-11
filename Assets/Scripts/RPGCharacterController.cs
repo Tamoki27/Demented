@@ -171,23 +171,10 @@ public class RPGCharacterController : MonoBehaviour
 			moveStatus = "jump";
 		}
 
+  
 
 	}
 
-    /*private void OnBecameVisible()
-    {
-        enemyScript.GetComponent<FollowTarget>().ActivateRUNAWAY();
-
-    }
-    private void OnBecameInvisible()
-    {
-        enemyScript.GetComponent<FollowTarget>().ActivateNORUNAWAY();
-
-    }
-
-    void RunSounds()
-    {
-
-    }*/
+    
 
 }
