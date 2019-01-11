@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BatterySlider : MonoBehaviour {
     float batteryLife;
-    float maxBatlife = 30.0f;
+    float maxBatlife = 100.0f;
     float minBatLife = 0f;
 
     int num = 0;
@@ -79,7 +79,7 @@ public class BatterySlider : MonoBehaviour {
                     //Debug.Log("Flashlight meter: " + (int)batteryLife + LightPower);
                 }
             }
-        }else if(batteryLife < 10)
+        }else if(batteryLife < 2)
         {
             
 
