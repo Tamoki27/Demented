@@ -67,21 +67,15 @@
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
     <Compile Include="Assets\Scripts\AntidoteScript.cs" />
     <Compile Include="Assets\Scripts\BatterySlider.cs" />
-    <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\CharacterControllerScript.cs" />
     <Compile Include="Assets\Scripts\DamageScript.cs" />
     <Compile Include="Assets\Scripts\EnemyScript.cs" />
     <Compile Include="Assets\Scripts\FirstPersonScript.cs" />
-    <Compile Include="Assets\Scripts\FlashlightSwitch.cs" />
-    <Compile Include="Assets\Scripts\FollowTarget.cs" />
-    <Compile Include="Assets\Scripts\HitBox.cs" />
     <Compile Include="Assets\Scripts\InsanityMeter.cs" />
-    <Compile Include="Assets\Scripts\Patroller.cs" />
     <Compile Include="Assets\Scripts\RPGCameraController.cs" />
     <Compile Include="Assets\Scripts\RPGCharacterController.cs" />
     <Compile Include="Assets\Scripts\SampleScript.cs" />
     <Compile Include="Assets\Scripts\SphereCaster.cs" />
-    <Compile Include="Assets\Scripts\WanderingMonster.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/GameDev/Unity/Projects/Demented/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
