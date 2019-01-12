@@ -28,6 +28,7 @@ public class BatterySlider : MonoBehaviour {
     // Update is called once per frame
     void Update () {
        // Debug.Log("Battery life: " + (int)batteryLife);
+       //if it's on battery life decreases
         if (LightPower == true)
         {
             //Debug.Log("Flashlight On: " + batteryLife);
@@ -38,7 +39,7 @@ public class BatterySlider : MonoBehaviour {
                 batteryLife = minBatLife;
             }
         }
-
+        //otherwise it recharges
         if (LightPower == false)
         {
             //Debug.Log("Flashlight Off: " + batteryLife);
@@ -52,15 +53,11 @@ public class BatterySlider : MonoBehaviour {
 
         batteryMeter.value = batteryLife;
 
-
+        //as long as battery is greater than 10 it would lit up
         if(batteryLife > 10)
         {
             //Debug.Log("Outside input battery life : " + (int)batteryLife);
-            /*if (Input.GetKeyDown(KeyCode.F) && batteryLife <= 5)
-            {
-                flashlight.enabled = !flashlight.enabled;
-                Debug.Log("Battery is drained");
-            }*/
+            
             if (Input.GetKeyDown(KeyCode.F))
             {
                 //Debug.Log("Toggle Light");
@@ -79,7 +76,8 @@ public class BatterySlider : MonoBehaviour {
                     //Debug.Log("Flashlight meter: " + (int)batteryLife + LightPower);
                 }
             }
-        }else if(batteryLife < 2)
+        }//otherwise it automatically turns off and won't allow player to turn it on unless it's greater than 10
+        else if(batteryLife < 2)
         {
             
 

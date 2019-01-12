@@ -181,8 +181,8 @@ public class EnemyScript : MonoBehaviour {
             }
 
         }
-
-        if ((transform.position - target.transform.position).magnitude > 3)
+        //checking player's distance from enemy
+        /*if ((transform.position - target.transform.position).magnitude > 3)
         {
             AnimatorStateInfo animState = eAnim.GetCurrentAnimatorStateInfo(0);
             if (animState.IsName("Scream") || animState.IsName("Zombie Attack"))
@@ -190,21 +190,23 @@ public class EnemyScript : MonoBehaviour {
                 eAnim.SetBool("away", true);
 
             }
-        }
+        }*/
 
 
 
     }
-
+    //Spherecaster uses this
     public void FollowPlayer()
     {
+        //sets bool to fit conditions in the update 
         follow = true;
         scream = true;
         
     }
-
+    //Spherecaster uses this
     public void BackToPatrol()
     {
+        //same
         follow = false;
     }
 

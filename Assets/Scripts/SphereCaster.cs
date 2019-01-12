@@ -28,18 +28,11 @@ public class SphereCaster : MonoBehaviour {
         direction = transform.forward;
         RaycastHit hit;
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            gameObject.GetComponent<EnemyScript>().FollowPlayer();
-        }
-
+        //checks if player hits the spherecast
         if(Physics.SphereCast(origin, sphereRad, direction, out hit, maxDist, layer, QueryTriggerInteraction.Collide))
         {
             currentHitObj = hit.transform.gameObject;
             currHitDist = hit.distance;
-
-            //gameObject.GetComponent<FollowTarget>().enabled = true;
-            //gameObject.GetComponent<Patroller>().enabled = false;
 
             //ctr controls the FollowPlayer function
             if (ctr > 0)
@@ -53,9 +46,7 @@ public class SphereCaster : MonoBehaviour {
         {
             currHitDist = maxDist;
             currentHitObj = null;
-            //gameObject.GetComponent<FollowTarget>().enabled = false;
-            //gameObject.GetComponent<Patroller>().enabled = true;
-
+          
             ctr++;
             gameObject.GetComponent<EnemyScript>().BackToPatrol();
         }
